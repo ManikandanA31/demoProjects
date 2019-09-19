@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -17,7 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class BrowserPart {
 	WebDriver driver;
 	dateTime dt = new dateTime();
-	
+
 	public void openBrowser() throws MalformedURLException, IOException
 	{
 		System.setProperty("webdriver.chrome.driver", "E:\\Chrome\\New\\chromedriver.exe");
@@ -26,13 +24,15 @@ public class BrowserPart {
 		System.out.println("Enter your URL to Check the Broken Link :");
 		Scanner scan = new Scanner(System.in);		
 		String url = scan.next();
-//		String url = "http://182.74.129.6/demo/amperagemarketing/kings/";
+		//		String url = "http://182.74.129.6/demo/amperagemarketing/kings/";
 		driver.get(url);
-		System.out.println(" Start Time :"); 
-		dt.DFormat();
+		Date date = new Date();
+		dateTime formated_date = new dateTime();
+		String start_time = formated_date.DFormat(date);	
+		System.out.println(" Start Time : " + start_time); 
 		findhyperlink();	
 	}
-	
+
 	public void findhyperlink() throws MalformedURLException, IOException
 	{
 		String url = "";
@@ -62,11 +62,14 @@ public class BrowserPart {
 				System.out.println(url +" :- Not a URL ");
 			}
 		}
-		System.out.println("Total URL Scanned ="+links.size());
-		System.out.println("Total Valid URL ="+validcounter);
-		System.out.println("Total InValid URL ="+invalidcounter);
-		System.out.println("Total NON URL ="+nonurlcounter);
-		System.out.println(" End Time :" + dt.date1);
+		System.out.println("Total URL Scanned ="+ links.size());
+		System.out.println("Total Valid URL ="+ validcounter);
+		System.out.println("Total InValid URL ="+ invalidcounter);
+		System.out.println("Total NON URL ="+ nonurlcounter);
+		Date date = new Date();
+		dateTime formated_date = new dateTime();
+		String end_time = formated_date.DFormat(date);	
+		System.out.println(" End Time :" + end_time);
 	}
 
 }

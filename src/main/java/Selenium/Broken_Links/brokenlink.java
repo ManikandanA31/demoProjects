@@ -13,8 +13,7 @@ public class brokenlink {
 	{
 		BrowserPart browser = new BrowserPart();
 		browser.openBrowser();
-		
-		
+			
 	}
 
 }

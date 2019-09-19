@@ -7,13 +7,12 @@ import java.util.Date;
 public class dateTime 
 {
 public String date1;
-	public void DFormat() 
+	public String DFormat(Date date) 
 	{
 		// TODO Auto-generated method stub
-		DateFormat dateformat = new SimpleDateFormat("HH:mm:ss");
-		Date date = new Date();
-		 date1 =  dateformat.format(date);
-		System.out.println(date1);
+		DateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy (hh:mm:ss)");
+		date1 =  dateformat.format(date);
+		return date1;
 
 	}
 
